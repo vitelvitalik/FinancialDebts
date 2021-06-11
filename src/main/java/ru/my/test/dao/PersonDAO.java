@@ -29,11 +29,11 @@ public class PersonDAO {
     public List<Person> indexFilter(String debt) {
         if (debt != null) {
             peopleFilter = new ArrayList<>(people);
-            for (Person person : peopleFilter) {
-                if (person.getDebt() == 0)
-                    peopleFilter.remove(person);
-                return peopleFilter;
+            for (int i = 0; i < peopleFilter.size(); i++) {
+                if (peopleFilter.get(i).getDebt() == 0)
+                    peopleFilter.remove(i);
             }
+            return peopleFilter;
         }
         return people;
         }
