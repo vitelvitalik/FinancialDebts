@@ -10,7 +10,7 @@ import java.util.List;
 public class PersonDAO {
     private static int PEOPLE_COUNT;
     private List<Person> people;
-    private List<Person> peopleFilter;
+
 
     {
         people = new ArrayList<>();
@@ -27,11 +27,16 @@ public class PersonDAO {
     }
 
     public List<Person> indexFilter(String debt) {
+
         if (debt != null) {
+            List<Person> peopleFilter;
             peopleFilter = new ArrayList<>(people);
             for (int i = 0; i < peopleFilter.size(); i++) {
-                if (peopleFilter.get(i).getDebt() == 0)
+                if (peopleFilter.get(i).getDebt() == 0) {
                     peopleFilter.remove(i);
+                    i--;
+                }
+
             }
             return peopleFilter;
         }
